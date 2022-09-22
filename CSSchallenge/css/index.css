@@ -1,0 +1,66 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.revista{
+    width: 750px;
+    background-image: url("../assets/jbalvin.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    padding: 30px 30px;
+}
+
+.revista__especial{
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    color: white;
+    justify-content: space-evenly;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    top: 156px;
+}
+
+.revista__negocios{
+    position: absolute;
+    width: 150px;
+    height: 300px;
+    color: white;
+    gap: 20px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    top: 570px;
+}
+
+.revista__creativos{
+    position: absolute;
+    width: 600px;
+    height: 200px;
+    color: white;
+    gap: 20px;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    top: 700px;
+    right: -100px;
+}
+
+h1{
+    font-size: 130px;
+    text-align: center;
+}
+
+
