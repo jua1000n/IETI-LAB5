@@ -9,6 +9,12 @@ body{
 }
 
 #root{
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+}
+
+.mainContainer{
   display:flex;
   align-items:center;
   justify-content: center;
@@ -17,7 +23,7 @@ body{
   background-color: lightblue;
 }
 
-div{
+.login{
   display: flex;
   flex-direction: column;
   width: 400px;

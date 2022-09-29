@@ -1,16 +1,26 @@
-import './App.css';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+import Login from './components/Login';
+import Task from "./components/Task";
 
 function App() {
+  
   return (
-    <main>
-        <div>
-          <h1>Login</h1>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
-          <button type="button"> Logear</button>
-        </div>
-      </main>
-    );
+    <BrowserRouter>
+      <Routes>
+        hello
+        <Route path="/" element={<Login />}>
+        </Route>
+        <Route path="/task" element={<Task />}>
+        </Route>
+      </Routes>
+    </BrowserRouter> 
+  );
+
   }
 
 export default App;

@@ -1,0 +1,30 @@
+.task{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 300px;
+  justify-content: space-evenly;
+  background-color: rgb(116, 112, 112);
+  border-radius: 8px;
+  padding: 30px 20px;
+}
+
+.name{
+  text-align: left;
+}
+
+.description{
+  font-size: 18px;
+}
+
+.status{
+  font-size: 18px;
+}
+
+.assign{
+  font-size: 12px;
+}
+
+.date{
+  font-size: 12px;
+}
