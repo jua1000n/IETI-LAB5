@@ -5,7 +5,7 @@ function Task() {
 
   useEffect(() => {
     const tasks = async () => {
-      const url = "http://localhost:8080/v1/task/tasks";
+      const url = "https://back-task-ieti.herokuapp.com/v1/task/tasks";
       try {
         const response = await fetch(url, {method: 'GET', headers: {'Content-Type': 'application/json'}});
         let data = await response.json();
