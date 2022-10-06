@@ -2,7 +2,7 @@
 
 ## Part 1: VSCode
 
-<img align="center" src="img/p1.PNG">
+<img align="center" src="img/p1.png">
 
 ## Part 2: Eslint
 
