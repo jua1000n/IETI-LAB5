@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# CodeLab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Part 1: VSCode
 
-## Available Scripts
+<img align="center" src="img/p1.PNG">
 
-In the project directory, you can run:
+## Part 2: Eslint
 
-### `npm start`
+1. Open your package.json, go down there on the **eslintConfig** and leave it as the next is:
+   ```json
+   "eslintConfig": {
+   	"extends": [
+   		"eslint:recommended",
+   		"react-app",
+   		"react-app/jest",
+   		"prettier"
+   	]
+   },
+   ```
+2. run **_npm i -D eslint_**
+3. add this 2 new scripts to the **package.json**
+   ```json
+   "lint": "eslint --ext .js,.jsx .",
+   "lint:fix": "npm run lint -- --fix"
+   ```
+4. If you installed **eslint** plugin the eslint errors will popup when you hover on warning messages on your code, for instance:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<img align="center" src="img/p2.PNG">
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Part 3: Prettier
 
-### `npm test`
+1. go to your package.json
+2. add a new key down below **eslintConfig**, like this:
+   ```json
+   "prettier": {}
+   ```
+3. Go to **_file/preferences/settings_** another alternative is pressing on windows **ctrl + ,**
+4. On the User configuration open **_Text Editor / Formatting_**
+5. Click on **Format On Save** checkbox.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<img align="center" src="img/p3.1.PNG">
+<img align="center" src="img/p3.2.PNG">
 
-### `npm run build`
+## Part 4: Husky
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img align="center" src="img/p4.PNG">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. run **_npm i -D husky_**
+2. run **_npm set-script prepare "husky install"_**
+3. run **_npm run prepare_**
+4. run **_npm i -D prettier_**
+5. run **_npm set-script format "prettier --write ."_**
+6. run **_npx husky add .husky/pre-commit "npm run lint:fix && npm format"_**
+7. Now, every time you try to run a commit it will validate there are no eslint **Errors** ( Not warnings ), and then it will format every file on your project using our prettier config.

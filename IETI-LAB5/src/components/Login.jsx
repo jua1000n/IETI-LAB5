@@ -2,37 +2,35 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 
 function Login() {
-  let [dates, setDates] = useState({});
-  const [tokenL, setTokenL] = useState("");
+  const [dates, setDates] = useState("");
+  let tokenL = "";
   
   function login() {
     const email = document.querySelector(".email").value;
     const password = document.querySelector(".password").value;
-    dates = {email, password};
     setDates({email, password});
-    console.log(dates);
   }
   
   useEffect(() => {
     const url = 'https://back-user-ieti.herokuapp.com/v1/auth';
-
+    console.log("wenas");
     try{
-      if (JSON.stringify(dates) !== "{}") {
-        fetch(url, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(dates),
-          }
-        )
-        .then(response => response.json())
-        .then(data => setTokenL(data.token));
-        console.log(tokenL);
-        if (tokenL) {
-          window.location = '/task';
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dates),
         }
-      } 
+      )
+      .then(response => response.json())
+      .then(data => {
+        tokenL = data.token;
+      });
+      console.log(tokenL);
+      if (tokenL) {
+        window.location = '/task';
+      }
       
     } catch(e) {
       console.log(e);
