@@ -25,7 +25,7 @@
    ```
 4. If you installed **eslint** plugin the eslint errors will popup when you hover on warning messages on your code, for instance:
 
-<img align="center" src="img/p2.PNG">
+<img align="center" src="img/p2.png">
 
 ## Part 3: Prettier
 
@@ -38,12 +38,12 @@
 4. On the User configuration open **_Text Editor / Formatting_**
 5. Click on **Format On Save** checkbox.
 
-<img align="center" src="img/p3.1.PNG">
-<img align="center" src="img/p3.2.PNG">
+<img align="center" src="img/p3.1.png">
+<img align="center" src="img/p3.2.png">
 
 ## Part 4: Husky
 
-<img align="center" src="img/p4.PNG">
+<img align="center" src="img/p4.png">
 
 1. run **_npm i -D husky_**
 2. run **_npm set-script prepare "husky install"_**
