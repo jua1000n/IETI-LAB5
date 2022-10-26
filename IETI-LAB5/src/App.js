@@ -6,6 +6,7 @@ import {
 
 import Login from './components/Login';
 import Task from "./components/Task";
+import Register from "./components/Register";
 
 function App() {
 
@@ -18,6 +19,8 @@ function App() {
         <Route path="/" element={<Login />}>
         </Route>
         <Route path="/task" element={<Task />}>
+        </Route>
+        <Route path="/register" element={<Register />}>
         </Route>
       </Routes>
     </BrowserRouter> 

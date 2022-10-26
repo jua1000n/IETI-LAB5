@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
 
-function Login() {
+function Register() {
   const [dates, setDates] = useState("");
   
-  function login() {
+  function register() {
     const email = document.querySelector(".email").value;
     const password = document.querySelector(".password").value;
-    setDates({email, password});
+    const name = document.querySelector(".name").value;
+    const lastName = document.querySelector(".lastName").value;
+    setDates({name, lastName, email, password});
   }
   
   useEffect(() => {
-    const url = 'https://back-user-ieti.herokuapp.com/v1/auth';
-    console.log("wenas");
+    const url = 'https://back-user-ieti.herokuapp.com/v1/user';
+    console.log(dates);
     try{
       fetch(url, {
         method: 'POST',
@@ -22,13 +24,13 @@ function Login() {
         body: JSON.stringify(dates),
         }
       )
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.token);
-        if (data.token) {
-          window.location = '/task';
+      .then(response => {
+        response.json();
+        console.log(response.status);
+        if (response.status === 201) {
+          window.location = '/';
         }
-      });      
+      })
       
     } catch(e) {
       console.log(e);
@@ -40,16 +42,15 @@ function Login() {
     <main className='mainContainer'>
         <div className='login'>
           <h1>Login</h1>
+          <input className='name' type="text" placeholder="Name" />
+          <input className='lastName' type="text" placeholder="LastName" />
           <input className='email' type="email" placeholder="Email" />
           <input className='password' type="password" placeholder="Password" />
-          <button type="button" onClick={login}> Logear</button>
-          <span class="css-141922f e5i1odf3">Don't have an account?
-            <a href="/register">&nbsp;Sign Up</a>
-          </span>
+          <button type="button" onClick={register}> Registrar</button>
         </div>
       </main>
   )
 
 }
 
-export default Login
+export default Register
